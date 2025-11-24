@@ -9,18 +9,6 @@ Run the following command in the directory containing flake.nix. If you haven't 
 nix develop --extra-experimental-features 'nix-command flakes'
 ``` 
 
-**Building Neomutt**
-Once inside the shell and in the proper `git worktree` folder, configure and build using the provided hooks:
-```bash
-# Configure with all features enabled (disable docs for speed)
-./configure --enable-everything --disable-doc
-```
-
-# Build using all available cores
-```
-make -j$(nproc)
-``` 
-
 2. Git Worktree Workflow
 We use a Bare Repository strategy. This allows you to have multiple branches checked out simultaneously in sibling directories (e.g., main, ai-agent, feature) without constantly switching context in a single folder.
 
@@ -54,18 +42,16 @@ cd ..
 Connect to the official repository to fetch updates.
 ```bash
 cd main
-git remote add upstream [https://github.com/neomutt/neomutt.git](https://github.com/neomutt/neomutt.git)
+git remote add upstream https://github.com/neomutt/neomutt.git
 git fetch upstream
 cd ..
 ```
 
 **Step 4: Create Development Worktrees**
 Create specific directories for your active tasks.
-1. AI Agent Development: `git worktree add -b ai-agent ai-agent main`
 2. Feature Development: `git worktree add -b feat/new-sidebar feature main`
 3. Code Review (Detached Head):
 Use this slot to check out Pull Requests without polluting your local branches.
 ```bash
 git worktree add --detach review main
-``` 
 ``` 
