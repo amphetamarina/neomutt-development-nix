@@ -43,7 +43,7 @@ Create a worktree for main. We treat this as a pristine reference point—never 
 
 ```bash
 # Check out main into a specific directory
-git worktree add main main
+git worktree add -f main main
 # (Optional) Prevent accidental pushes from this local branch
 cd main
 git config branch.main.pushRemote no_push
@@ -75,12 +75,3 @@ Keep shell.nix in the root folder and symlink it into active worktrees:
 ln -s ../shell.nix ai-agent/shell.nix
 ln -s ../shell.nix feature/shell.nix
 ``` 
-
-**Directory Structure**
-├── .git/           # Bare repository (metadata only)
-├── shell.nix       # Nix environment definition
-├── main/           # Read-only reference to upstream/main
-├── ai-agent/       # Active worktree for AI features
-├── feature/        # Active worktree for generic features
-└── review/         # Detached worktree for testing PRs
-
