@@ -4,10 +4,10 @@ This repository contains a shell.nix configuration for reproducible Neomutt deve
 
 1. Quick Start
 **Entering the Environment**
-Run the following command in the directory containing shell.nix:
+Run the following command in the directory containing flake.nix. If you haven't enabled flakes globally, use the flags below:
 ```bash
-nix-shell
-```
+nix develop --extra-experimental-features 'nix-command flakes'
+``` 
 
 **Building Neomutt**
 Once inside the shell and in the proper `git worktree` folder, configure and build using the provided hooks:
@@ -68,10 +68,4 @@ Use this slot to check out Pull Requests without polluting your local branches.
 ```bash
 git worktree add --detach review main
 ``` 
-
-**Step 5: Managing shell.nix**
-Keep shell.nix in the root folder and symlink it into active worktrees:
-```bash
-ln -s ../shell.nix ai-agent/shell.nix
-ln -s ../shell.nix feature/shell.nix
 ``` 
