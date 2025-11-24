@@ -48,6 +48,7 @@
             tokyocabinet
             kyotocabinet
             rocksdb
+            db
             
             # Features & Compression
             notmuch
